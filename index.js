@@ -17,7 +17,7 @@ function createToken(user) {
       email: user.email,
     },
     "secret",
-    { expiresIn: "7d" }
+    { expiresIn: '7d' }
   );
   return token;
 }
