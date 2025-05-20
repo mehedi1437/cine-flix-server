@@ -74,7 +74,7 @@ async function run() {
     });
 
     // Add a Movie
-    app.post("/movie",verifyToken,  async (req, res) => {
+    app.post("/movie",  async (req, res) => {
       const body = req.body;
       body.createdAt = new Date();
       if (!body) {
@@ -119,7 +119,7 @@ async function run() {
     });
 
     // Update a Movie
-    app.put("/update-movies/:id",verifyToken,  async (req, res) => {
+    app.put("/update-movies/:id",  async (req, res) => {
       const id = req.params.id;
       const movie = req.body;
       const filter = { _id: new ObjectId(id) };
@@ -145,7 +145,7 @@ async function run() {
     });
 
     // Delete A movie
-    app.delete("/movie/:id",verifyToken,  async (req, res) => {
+    app.delete("/movie/:id",  async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
       const result = await moviesCollection.deleteOne(query);
@@ -187,7 +187,7 @@ async function run() {
     });
 
     // Update a user
-    app.patch("/users/:email",verifyToken,  async (req, res) => {
+    app.patch("/users/:email",  async (req, res) => {
       const email = req.params.email;
       const user = req.body;
       const filter = { email };
